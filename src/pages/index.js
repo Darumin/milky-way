@@ -1,7 +1,10 @@
 import * as React from "react"
+import ParticleBackground from "../ParticleBackground.js"
 
 // styles
 const pageStyles = {
+  background: "white",
+  opacity: 0.8,
   color: "#232129",
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
@@ -129,11 +132,12 @@ const links = [
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
+      <ParticleBackground />
       <title>Home Page</title>
       <h1 style={headingStyles}>
-        Congratulations
+        Welcome to the
         <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
+        <span style={headingAccentStyles}>milky way. </span>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
