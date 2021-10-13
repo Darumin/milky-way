@@ -2,10 +2,15 @@ import * as React from 'react';
 import { useState } from 'react';
 import Sketch from 'react-p5';
 import { Link } from 'gatsby';
+import './about.css';
 
 const About = () => {
   const [age, toggleAge] = useState(0);
   const [job, toggleJob] = useState(0);
+  const [hobby, toggleHobby] = useState(0);
+  const [self, toggleSelf] = useState(0);
+  const [location, toggleLocation] = useState(0);
+  const [pet, togglePet] = useState(0);
 
   const ages = [
     "28 years old, 🤓",
@@ -17,46 +22,14 @@ const About = () => {
 
   const jobs = [
     "an actual NASA astronaut, 🧑‍🚀",
-    "a software engineer, 💾",
-    "a fictional Belgian detective, 🔍"
+    "a software engineer, 👨‍💻",
+    "a fictional Belgian detective, 🕵️‍♂️"
   ];
 
   const hobbies = [
-    "remember the Alamo 🤠"
+    "am a lover of all things code. 📟",
+    "remember the Alamo. 🤠",
   ];
-
-  const linkStyle = {
-    fontFamily: "-apple-system, Roboto, sans-serif, serif",
-    cursor: "pointer",
-    fontSize: "1.3rem",
-    fontWeight: "bold",
-    top: "2%",
-    left: "2%",
-    position: "absolute",
-    border: "none",
-    background: "none",
-    color: "#D28271",
-  };
-
-  const aboutStyle = {
-    fontFamily: "-apple-system, Roboto, sans-serif, serif",
-    position: "absolute",
-    width: "70rem",
-    color: "#8D2D54",
-    fontSize: "2.3rem",
-    top: "30%",
-    left: "20%",
-  };
-
-  const b = {
-    cursor: "pointer",
-    padding: 5,
-    color: "#D28271",
-    background: "#EECCA5",
-    fontWeight: "bold",
-    fontFamily: "Courier New",
-    fontSize: "1.5rem",
-  };
 
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
@@ -96,31 +69,38 @@ const About = () => {
 
   return(
     < >
-      <div style={aboutStyle}>
+      <div className="about-style">
         <p>
+          <Link to="/" className="link-style">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/circled-left-2.png"/>
+          </Link>
           My name is Jan. I'm <span
             role="button"
             onClick={() => age === ages.length - 1 ? toggleAge(0) : toggleAge(age+1)}
-            style={b}>
+            className="tag-style">
               {ages[age]}
             </span>
           <br></br>I work as <span
             role="button"
             onClick={() => job === jobs.length - 1 ? toggleJob(0) : toggleJob(job+1)}
-            style={b}>
+            className="tag-style">
               {jobs[job]}
             </span>
           <br></br>
-          and I <span style={b}>am a lover of all things code. </span>
+          and I <span
+            role="button"
+            onClick={() => hobby === hobbies.length - 1 ? toggleHobby(0) : toggleHobby(hobby+1)}
+            className="tag-style">
+              {hobbies[hobby]}
+            </span>
           <br></br>
-          I am made of <span style={b}>molten lava.</span>
+          I am made of <span className="tag-style">molten lava.</span>
           <br></br>
-          I live <span style={b}>5000 miles above the earth</span>
+          I live <span className="tag-style">5000 miles above the earth</span>
           <br></br>
-          and I have a pet <span style={b}>turtle.</span>
+          and I have a pet <span className="tag-style">turtle.</span>
         </p>
       </div>
-      <Link to="/" style={linkStyle}>Back</Link>
       <Sketch setup={setup} mousePressed={mousePressed} mouseDragged={mouseDragged} />
     </>
   );

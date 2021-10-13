@@ -108,8 +108,8 @@ const links = [
     color: "#8EB814",
   },
   {
-    text: "Leave a Sketch",
-    url: "https://www.gatsbyjs.com/cloud",
+    text: "Browse my Cows",
+    url: "/cows",
     badge: true,
     description:
       "Come on over and leave me a special message! Let's go!",

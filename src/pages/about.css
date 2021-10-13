@@ -1,0 +1,31 @@
+.link-style {
+  cursor: pointer;
+  top: 2%;
+  position: absolute;
+  opacity: 0.5;
+}
+
+.link-style:hover {
+  opacity: 1;
+}
+
+.about-style {
+  font-family: "-apple-system, Roboto, sans-serif, serif";
+  user-select: none;
+  position: absolute;
+  width: 70rem;
+  color: #8D2D54;
+  font-size: 2.3rem;
+  top: 30%;
+  left: 20%;
+}
+
+.tag-style {
+  cursor: pointer;
+  padding: 5;
+  color: #D28271;
+  background: #EECCA5;
+  font-weight: bold;
+  font-family: "Courier New";
+  font-size: 1.5rem;
+}
