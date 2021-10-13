@@ -18,9 +18,10 @@ const paragraphStyles = {
 }
 const codeStyles = {
   color: "#8A6534",
-  padding: 4,
+  fontFamily: "Verdana (sans-serif)",
+  padding: 5,
   backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
+  fontSize: "1rem",
   borderRadius: 4,
 }
 const listStyles = {
@@ -72,46 +73,46 @@ const badgeStyle = {
 // data
 const links = [
   {
-    text: "LinkedIn",
-    url: "https://linkedin.com/in/jandeo",
+    text: "About",
+    url: "/about",
     description:
-      "My personal LinkedIn profile.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     color: "#1099A8",
   },
   {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
+    text: "LinkedIn",
+    url: "https://linkedin.com/in/jandeo",
     description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
+      "My personal LinkedIn profile. Connect with me!",
+    color: "#E95800",
+  },
+  {
+    text: "Github",
+    url: "https://github.com/Darumin",
+    description:
+      "Where you can find my public code repositories.",
     color: "#BC027F",
   },
   {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
+    text: "My Art",
+    url: "/",
     description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
+      "A collection of my art works over the past few years.",
     color: "#0D96F2",
   },
   {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
+    text: "Hack Reactor",
+    url: "/",
     description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
+      "Want to elevate your career and enter a challenging, yet rewarding, industry? Sign up for Hack Reactor, the Harvard of coding bootcamps! You won't be disappointed. Unless...?",
     color: "#8EB814",
   },
   {
-    text: "Build and Host",
+    text: "Leave a Sketch",
     url: "https://www.gatsbyjs.com/cloud",
     badge: true,
     description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
+      "Come on over and leave me a special message! Let's go!",
     color: "#663399",
   },
 ]
@@ -146,32 +147,38 @@ const IndexPage = () => {
         Welcome to the
         <br />
         <span style={headingAccentStyles}>milky way. </span>
-        <span role="img" aria-label="Party popper emojis">
+        <span role="img" aria-label="rocket emojis">
           🚀
         </span>
       </h1>
       <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
+        A guide to <code style={codeStyles}>per5i5ting</code> in a universe of unknowns.{" "}
+        <span
+          role="img"
+          aria-label="Sunglasses smiley emoji"
+          style={{fontSize:"2rem"}}>
+          🕵️
         </span>
       </p>
+      <p style={paragraphStyles}>
+        This site is formatted using Gatsby's automatically generated boilerplate.
+        <br></br>Sketches are built with p5 and react-p5, with examples from the p5 website.
+      </p>
       <ul style={listStyles}>
-        <li style={docLinkStyle}>
+        {/* <li style={docLinkStyle}>
           <a
             style={linkStyle}
             href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
           >
             {docLink.text}
           </a>
-        </li>
+        </li> */}
         {links.map(link => (
           <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
             <span>
               <a
                 style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+                href={`${link.url}`}
               >
                 {link.text}
               </a>
