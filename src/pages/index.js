@@ -108,11 +108,11 @@ const links = [
     color: "#8EB814",
   },
   {
-    text: "Browse my Cows",
+    text: "My Blog",
     url: "/cows",
     badge: true,
     description:
-      "Come on over and leave me a special message! Let's go!",
+      "Read my most private thoughts.",
     color: "#663399",
   },
 ]
