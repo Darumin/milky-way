@@ -1,25 +1,55 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Sketch from 'react-p5';
 
-const ParticleBackground = () => {
-  let particles = [];
+const ParticleBackground = (props) => {
+  const { darkTheme } = props;
+  const [particles, setParticles] = useState([]);
 
-  const setup = (p5, canvasParentRef) => {
+  let particleFill;
+  let particleStroke;
+  let particleBg;
+  let topSpeed;
+
+  // darktheme
+  if(darkTheme) {
+    particleFill = 'rgba(250,190,88,.5)';
+    particleStroke = 'rgba(255,255,255,.04)';
+    particleBg = '#0f0f3f';
+    topSpeed = 2;
+  } else {
+    // light theme
+    particleFill = 'rgba(141,45,84,0.5)';
+    particleStroke = 'rgba(0,0,0,.04)';
+    particleBg = '#fdfff5';
+    topSpeed = 6;
+  }
+
+  let setup = (p5, canvasParentRef) => {
     class Particle {
       // setting the co-ordinates, radius and the
       // speed of a particle in both the co-ordinates axes.
-      constructor() {
+      constructor(particleFill, particleStroke, topSpeed) {
+        this.particleFill = particleFill;
+        this.particleStroke = particleStroke;
         this.x = p5.random(0, p5.width);
         this.y = p5.random(0, p5.height);
         this.r = p5.random(1,8);
-        this.xSpeed = p5.random(-2,2);
-        this.ySpeed = p5.random(-1,1.5);
+        this.topSpeed = topSpeed;
+        this.xSpeed = p5.random(-2,topSpeed);
+        this.ySpeed = p5.random(-1,topSpeed);
       }
 
-    // creation of a particle.
+      setParticleStyle(particleFill, particleStroke, topSpeed) {
+        this.particleFill = particleFill;
+        this.particleStroke = particleStroke;
+        this.topSpeed = topSpeed;
+      }
+
+      // creation of a particle.
       createParticle() {
         p5.noStroke();
-        p5.fill('rgba(69,0,0,0.5)');
+        p5.fill(this.particleFill);
         p5.circle(this.x,this.y,this.r);
       }
 
@@ -39,32 +69,39 @@ const ParticleBackground = () => {
         particles.forEach(element =>{
           let dis = p5.dist(this.x,this.y,element.x,element.y);
           if(dis<85) {
-            p5.stroke('rgba(0,0,0,0.04)');
+            p5.stroke(this.particleStroke);
             p5.line(this.x,this.y,element.x,element.y);
           }
         });
       }
     }
 
-    const canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight * 2);
+    const canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight * 2)
+      .parent(canvasParentRef);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
     canvas.style('background', 'cover');
+
     for(let i = 0; i < p5.width/10; i++){
-      particles.push(new Particle());
+      setParticles(particles => (
+        [...particles, new Particle(particleFill, particleStroke)]
+      ));
     }
   }
 
   const draw = p5 => {
-    p5.background('#ffffff');
+    p5.background(particleBg);
     for(let i = 0; i < particles.length; i++) {
+      particles[i].setParticleStyle(particleFill, particleStroke, topSpeed);
       particles[i].createParticle();
       particles[i].moveParticle();
       particles[i].joinParticles(particles.slice(i));
     }
   }
 
-  return <Sketch setup={setup} draw={draw} />;
+  return (
+    <Sketch setup={setup} draw={draw} />
+  );
 };
 
 export default ParticleBackground;

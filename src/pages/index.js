@@ -1,21 +1,17 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import ParticleBackground from "../ParticleBackground.js"
+import ThemeChanger from "../ThemeChanger.js"
 
 // styles
-const pageStyles = {
-  background: "white",
-  opacity: 0.8,
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
+
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 320,
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: "#D28271",
 }
 const paragraphStyles = {
   marginBottom: 48,
@@ -39,7 +35,7 @@ const listItemStyles = {
 }
 
 const linkStyle = {
-  color: "#8954A8",
+  color: "#EECCA5",
   fontWeight: "bold",
   fontSize: 16,
   verticalAlign: "5%",
@@ -49,14 +45,6 @@ const docLinkStyle = {
   ...linkStyle,
   listStyleType: "none",
   marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
 }
 
 const docLink = {
@@ -84,10 +72,10 @@ const badgeStyle = {
 // data
 const links = [
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
+    text: "LinkedIn",
+    url: "https://linkedin.com/in/jandeo",
     description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+      "My personal LinkedIn profile.",
     color: "#E95800",
   },
   {
@@ -130,16 +118,36 @@ const links = [
 
 // markup
 const IndexPage = () => {
+  const [darkTheme, setDarkTheme] = useState(false);
+  const globalColor = !darkTheme ? "#232129" : "#fdfff5";
+
+  const pageStyles = {
+    color: globalColor,
+    padding: 96,
+    fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  }
+
+  const descriptionStyle = {
+    color: globalColor,
+    fontSize: 14,
+    marginTop: 10,
+    marginBottom: 0,
+    lineHeight: 1.25,
+  }
+
+
+
   return (
     <main style={pageStyles}>
-      <ParticleBackground />
-      <title>Home Page</title>
+      <ParticleBackground darkTheme={darkTheme} />
+      <ThemeChanger darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+      <title>Milky Way</title>
       <h1 style={headingStyles}>
         Welcome to the
         <br />
         <span style={headingAccentStyles}>milky way. </span>
         <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
+          🚀
         </span>
       </h1>
       <p style={paragraphStyles}>
