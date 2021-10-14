@@ -1,3 +1,16 @@
+<h1 align="center">
+  Milky Way
+</h1>
+
+![Gatsby](https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white)
+![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
+![p5js](https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5.js&logoColor=FFFFFF)
+
+
+## About this project
+
+**Milky Way** was built to demonstrate how easy it is to deploy a visually unique personal website with a few libraries. This project can be used as a base for an art portfolio, a portal to other parts of the web, or even a blog.
+
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
