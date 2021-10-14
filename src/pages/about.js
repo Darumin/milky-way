@@ -4,6 +4,8 @@ import Sketch from 'react-p5';
 import { Link } from 'gatsby';
 import './about.css';
 
+const isBrowser = typeof window !== "undefined";
+
 const About = () => {
   const [age, toggleAge] = useState(0);
   const [job, toggleJob] = useState(0);
@@ -101,7 +103,16 @@ const About = () => {
           and I have a pet <span className="tag-style">turtle.</span>
         </p>
       </div>
-      <Sketch setup={setup} mousePressed={mousePressed} mouseDragged={mouseDragged} />
+      {(
+        () => {
+          if(isBrowser) {
+            return (<Sketch setup={setup} mousePressed={mousePressed} mouseDragged={mouseDragged} />);
+          } else {
+            return;
+          }
+        }
+      )()}
+
     </>
   );
 

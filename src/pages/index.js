@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import ParticleBackground from "../ParticleBackground.js"
 import ThemeChanger from "../ThemeChanger.js"
 
+const isBrowser = typeof window !== "undefined"
+
 // styles
 
 const headingStyles = {
@@ -140,7 +142,10 @@ const IndexPage = () => {
 
   return (
     <main style={pageStyles}>
-      <ParticleBackground darkTheme={darkTheme} />
+      {(() => {
+        if (isBrowser) { return(<ParticleBackground darkTheme={darkTheme} />); }
+        else { return; }
+      })()}
       <ThemeChanger darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <title>Milky Way</title>
       <h1 style={headingStyles}>
