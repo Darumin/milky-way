@@ -13,6 +13,7 @@
 
 <img src="https://user-images.githubusercontent.com/58609014/137348683-9cf176c5-76bd-4e2c-b77b-dddbc2026c50.png" />
 
+Read below to see how to get started setting up a Gatsby starter site like the one used in this demo.
 
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
