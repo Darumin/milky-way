@@ -1,79 +1,14 @@
 import * as React from "react"
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import "./index.css"
+
 import ParticleBackground from "../ParticleBackground.js"
 import ThemeChanger from "../ThemeChanger.js"
-
-// styles
-
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#D28271",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  fontFamily: "Verdana (sans-serif)",
-  padding: 5,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#EECCA5",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
 
 // data
 const links = [
   {
-    text: "About",
+    text: "About the Author",
     url: "/about",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -94,11 +29,12 @@ const links = [
     color: "#BC027F",
   },
   {
-    text: "My Art",
-    url: "/",
+    text: "My Blog",
+    url: "/cows",
+    badge: true,
     description:
-      "A collection of my art works over the past few years.",
-    color: "#0D96F2",
+      "Read my most private thoughts.",
+    color: "#663399",
   },
   {
     text: "Hack Reactor",
@@ -107,20 +43,14 @@ const links = [
       "Want to elevate your career and enter a challenging, yet rewarding, industry? Sign up for Hack Reactor, the Harvard of coding bootcamps! You won't be disappointed. Unless...?",
     color: "#8EB814",
   },
-  {
-    text: "My Blog",
-    url: "/cows",
-    badge: true,
-    description:
-      "Read my most private thoughts.",
-    color: "#663399",
-  },
 ]
 
 // markup
 const IndexPage = () => {
   const [darkTheme, setDarkTheme] = useState(false);
   const globalColor = !darkTheme ? "#232129" : "#fdfff5";
+  const globalAccent = !darkTheme ? "#D28271" : "#EECCA5";
+  const globalAccentInverted = !darkTheme ? "#639EAA" : "#D28271";
 
   const pageStyles = {
     color: globalColor,
@@ -136,6 +66,22 @@ const IndexPage = () => {
     lineHeight: 1.25,
   }
 
+  const linkStyle = {
+    color: globalAccent,
+    fontWeight: "bold",
+    fontSize: 16,
+    verticalAlign: "5%",
+  }
+
+  const headingAccentStyles = {
+    color: globalAccentInverted,
+  }
+
+  const paragraphAccentStyles = {
+    color: globalAccentInverted,
+    fontWeight: "bolder",
+  }
+
 
 
   return (
@@ -143,7 +89,7 @@ const IndexPage = () => {
       <ParticleBackground darkTheme={darkTheme} />
       <ThemeChanger darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <title>Milky Way</title>
-      <h1 style={headingStyles}>
+      <h1 className="heading">
         Welcome to the
         <br />
         <span style={headingAccentStyles}>milky way. </span>
@@ -151,8 +97,8 @@ const IndexPage = () => {
           🚀
         </span>
       </h1>
-      <p style={paragraphStyles}>
-        A guide to <code style={codeStyles}>per5i5ting</code> in a universe of unknowns.{" "}
+      <p className="par">
+        A way to <code className="code-style">per5i5t</code> in a universe of unknowns.{" "}
         <span
           role="img"
           aria-label="Sunglasses smiley emoji"
@@ -160,21 +106,27 @@ const IndexPage = () => {
           🕵️
         </span>
       </p>
-      <p style={paragraphStyles}>
-        This site is formatted using Gatsby's starter site code.
-        <br></br>Sketches are built with p5 and react-p5, with examples from the p5 website.
+      <span id="b-gatsby" className="badge" aria-label="gatsby-badge">Gatsby</span>
+      <span id="b-graphql" className="badge" aria-label="graphql-badge">GraphQL</span>
+      <span id="b-p5" className="badge" aria-label="p5-badge">p5.js</span>
+      <span id="wizardry" className="badge" aria-label="wizardry-badge">Wizardry ⭐</span>
+      <p className="par" style={{width: "30rem"}}>
+        <span style={paragraphAccentStyles}>Unleash your creative side.</span> Milky Way is a portfolio site demo showing what a determined dev can build with just a few tools (and in just a few days).
       </p>
-      <ul style={listStyles}>
-        {/* <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li> */}
+      <p className="par" style={{width: "30rem"}}>
+        Deployed with <span style={paragraphAccentStyles}>Gatsby </span>
+        and a <span style={paragraphAccentStyles}>GraphQL </span>
+        data layer for easy blogging, as well as some eye-catching visuals through <span style={paragraphAccentStyles}>p5js</span>,
+        <br></br>
+        Milky Way is React at its simplest and most beautiful.
+      </p>
+
+      <p style={descriptionStyle}>Credit for p5 code goes to <a
+        style={linkStyle}
+        href="https://p5js.org/examples/">p5js.org.</a></p>
+      <ul className="list">
         {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
+          <li key={link.url} className="list-item" style={{color: link.color }}>
             <span>
               <a
                 style={linkStyle}
@@ -183,7 +135,7 @@ const IndexPage = () => {
                 {link.text}
               </a>
               {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
+                <span id="b-new" className="badge" aria-label="New Badge">
                   NEW!
                 </span>
               )}

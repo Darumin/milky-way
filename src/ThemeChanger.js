@@ -9,10 +9,21 @@ const ThemeChanger = (props) => {
   };
 
   return(
+    <>
     <label class="switch">
       <input onChange={drillUp} type="checkbox" />
       <span class="slider round"></span>
     </label>
+    <span className="symbol">{(
+        () => {
+          if(darkTheme) {
+            return '☪';
+          } else {
+            return '☼';
+          }
+        }
+    )()}</span>
+    </>
   );
 };
 

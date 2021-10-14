@@ -1,0 +1,78 @@
+.symbol {
+  font-size: 3rem;
+  font-weight: bolder;
+  position: absolute;
+  left: 95%;
+  top: 2%;
+}
+
+.heading {
+  margin-top: 0;
+  margin-bottom: 64;
+  max-width: 320;
+}
+
+/* paragraph styles  */
+.par {
+  margin-bottom: 48;
+}
+
+.code-style {
+  color: #8A6534;
+  font-family: "Courier";
+  padding: .2rem;
+  background-color: #FFF4DB;
+  font-size: .9rem;
+  border-radius: .1rem;
+}
+
+.list {
+  margin-bottom: 2rem;
+  padding-left: 0;
+}
+
+.list-item {
+  font-weight: 300pt;
+  font-size: .9rem;
+  max-width: 30rem;
+  margin-bottom: 1.4rem;
+}
+
+.badge {
+  color: #fff;
+  font-size: .7rem;
+  font-weight: bold;
+  letter-spacing: 1pt;
+  border-radius: .2rem;
+  padding: .3rem .4rem;
+  display: inline-block;
+  position: relative;
+  top: -2;
+  margin-left: .5rem;
+  line-height: .5rem;
+}
+
+#b-new {
+  background-color: #088413;
+  border: 1px solid #088413;
+}
+
+#b-gatsby {
+  background-color: #639EAA;
+  border: 1px solid #639EAA;
+}
+
+#b-graphql {
+  background-color: #8D2D54;
+  border: 1px solid #8D2D54;
+}
+
+#b-p5 {
+  background-color: #D28271;
+  border: 1px solid #D28271;
+}
+
+#wizardry {
+  background-color: #C0DBD5;
+  border: 1px solid #C0DBD5;
+}
