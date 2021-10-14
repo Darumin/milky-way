@@ -22,19 +22,42 @@ const About = () => {
     "older than time itself, 💀",
     "just a baby, 👶",
     "in a simulation called The Matrix, 🤖",
-    "a Klingon from outer space, 👾"
+    "a Klingon from outer space, 👾",
   ];
 
   const jobs = [
     "an actual NASA astronaut, 🧑‍🚀",
     "a software engineer, 👨‍💻",
-    "a fictional Belgian detective, 🕵️‍♂️"
+    "a fictional Belgian detective, 🕵️‍♂️",
   ];
 
   const hobbies = [
     "am a lover of all things code. 📟",
     "remember the Alamo. 🤠",
+    "have finished this project... for now. 👀",
   ];
+
+  const selves = [
+    "molten lava. 🌋",
+    "swords. ⚔️",
+    "a positronic brain and a neural mesh. 🤖",
+  ];
+
+  const locations = [
+    "5000 miles above the earth 🌎",
+    "in a yellow submarine, a yellow submarine, a yellow submarine 🛥️",
+    "in a pineapple under the sea 🍍",
+  ];
+
+  const pets = [
+    "turtle. 🐢",
+    "dinosaur. 🦖",
+    "pokemon. 🍙",
+  ];
+
+  const switchTag = (tag, tags, cb) => {
+    tag === tags.length - 1 ? cb(0) : cb(tag + 1);
+  };
 
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
@@ -99,11 +122,26 @@ const About = () => {
               {hobbies[hobby]}
             </span>
           <br></br>
-          I am made of <span className="tag-style">molten lava.</span>
+          I am made of <span
+            className="tag-style"
+            onClick={() => switchTag(self, selves, toggleSelf)}
+            role="button">
+              {selves[self]}
+            </span>
           <br></br>
-          I live <span className="tag-style">5000 miles above the earth</span>
+          I live <span
+            className="tag-style"
+            onClick={() => switchTag(location, locations, toggleLocation)}
+            role="button">
+              {locations[location]}
+            </span>
           <br></br>
-          and I have a pet <span className="tag-style">turtle.</span>
+          and I have a pet <span
+            className="tag-style"
+            onClick={() => switchTag(pet, pets, togglePet)}
+            role="button">
+              {pets[pet]}
+            </span>
         </p>
       </div>
       {(

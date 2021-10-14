@@ -11,7 +11,7 @@ const links = [
     text: "About the Author",
     url: "/about",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit... and more!",
     color: "#1099A8",
   },
   {
@@ -33,14 +33,14 @@ const links = [
     url: "/cows",
     badge: true,
     description:
-      "Read my most private thoughts.",
+      "Browse my most private thoughts.",
     color: "#663399",
   },
   {
     text: "Hack Reactor",
     url: "/",
     description:
-      "Want to elevate your career and enter a challenging, yet rewarding, industry? Sign up for Hack Reactor, the Harvard of coding bootcamps! You won't be disappointed. Unless...?",
+      "Want to elevate your career and enter a challenging, yet rewarding, industry? Sign up for Hack Reactor, the Harvard of coding bootcamps! You won't be disappointed.",
     color: "#8EB814",
   },
 ]
@@ -81,8 +81,6 @@ const IndexPage = () => {
     color: globalAccentInverted,
     fontWeight: "bolder",
   }
-
-
 
   return (
     <main style={pageStyles}>
