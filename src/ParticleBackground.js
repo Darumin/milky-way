@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
-import Sketch from 'react-p5';
+
+var Sketch = null;
+
+if(typeof window !== 'undefined') {
+  Sketch = require('react-p5');
+}
 
 const ParticleBackground = (props) => {
   const { darkTheme } = props;
@@ -100,7 +105,17 @@ const ParticleBackground = (props) => {
   }
 
   return (
-    <Sketch setup={setup} draw={draw} />
+    <>
+      {(
+        () => {
+          if(Sketch) {
+            return (<Sketch setup={setup} draw={draw} />);
+          } else {
+            return;
+          }
+        }
+      )()}
+    </>
   );
 };
 

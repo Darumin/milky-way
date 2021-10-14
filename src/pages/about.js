@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { useState } from 'react';
-import Sketch from 'react-p5';
+// import Sketch from 'react-p5';
 import { Link } from 'gatsby';
 import './about.css';
 
-const isBrowser = typeof window !== "undefined";
+var Sketch = null;
+
+if(typeof window !== 'undefined') {
+  Sketch = require('react-p5');
+}
 
 const About = () => {
   const [age, toggleAge] = useState(0);
@@ -105,7 +109,7 @@ const About = () => {
       </div>
       {(
         () => {
-          if(isBrowser) {
+          if(Sketch) {
             return (<Sketch setup={setup} mousePressed={mousePressed} mouseDragged={mouseDragged} />);
           } else {
             return;

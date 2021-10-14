@@ -3,8 +3,6 @@ import { useState, useEffect } from "react"
 import ParticleBackground from "../ParticleBackground.js"
 import ThemeChanger from "../ThemeChanger.js"
 
-const isBrowser = typeof window !== "undefined"
-
 // styles
 
 const headingStyles = {
@@ -142,10 +140,7 @@ const IndexPage = () => {
 
   return (
     <main style={pageStyles}>
-      {(() => {
-        if (isBrowser) { return(<ParticleBackground darkTheme={darkTheme} />); }
-        else { return; }
-      })()}
+      <ParticleBackground darkTheme={darkTheme} />
       <ThemeChanger darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <title>Milky Way</title>
       <h1 style={headingStyles}>
@@ -166,7 +161,7 @@ const IndexPage = () => {
         </span>
       </p>
       <p style={paragraphStyles}>
-        This site is formatted using Gatsby's automatically generated boilerplate.
+        This site is formatted using Gatsby's starter site code.
         <br></br>Sketches are built with p5 and react-p5, with examples from the p5 website.
       </p>
       <ul style={listStyles}>
