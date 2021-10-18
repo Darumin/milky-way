@@ -34,7 +34,6 @@ const About = () => {
   const hobbies = [
     "am a lover of all things code. 📟",
     "remember the Alamo. 🤠",
-    "have finished this project... for now. 👀",
   ];
 
   const selves = [

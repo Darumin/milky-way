@@ -109,14 +109,14 @@ const IndexPage = () => {
       <span id="b-p5" className="badge" aria-label="p5-badge">p5.js</span>
       <span id="wizardry" className="badge" aria-label="wizardry-badge">Wizardry ⭐</span>
       <p className="par" style={{width: "30rem"}}>
-        <span style={paragraphAccentStyles}>Unleash your creative side.</span> Milky Way is a portfolio site demo showing what a determined dev can build with just a few tools (and in just a few days).
+        <span style={paragraphAccentStyles}>Unleash your creative side.</span> Milky Way is currently under construction as a personal website for the author. Try playing around with <span style={paragraphAccentStyles}>About the Author</span>.
       </p>
       <p className="par" style={{width: "30rem"}}>
         Deployed with <span style={paragraphAccentStyles}>Gatsby </span>
         and a <span style={paragraphAccentStyles}>GraphQL </span>
         data layer for easy blogging, as well as some eye-catching visuals through <span style={paragraphAccentStyles}>p5js</span>,
         <br></br>
-        Milky Way is React at its simplest and most beautiful.
+        Milky Way is React at its most fun.
       </p>
 
       <p style={descriptionStyle}>Credit for p5 code goes to <a
